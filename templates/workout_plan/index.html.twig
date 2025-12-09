@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WorkoutPlan index{% endblock %}
+
+{% block body %}
+    <h1>WorkoutPlan index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Duration</th>
+                <th>Difficulty</th>
+                <th>Goal</th>
+                <th>Image</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for workout_plan in workout_plans %}
+            <tr>
+                <td>{{ workout_plan.id }}</td>
+                <td>{{ workout_plan.name }}</td>
+                <td>{{ workout_plan.description }}</td>
+                <td>{{ workout_plan.duration }}</td>
+                <td>{{ workout_plan.difficulty }}</td>
+                <td>{{ workout_plan.goal }}</td>
+                <td>{{ workout_plan.image }}</td>
+                <td>{{ workout_plan.createdAt ? workout_plan.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ workout_plan.updatedAt ? workout_plan.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_workout_plan_show', {'id': workout_plan.id}) }}">show</a>
+                    <a href="{{ path('app_workout_plan_edit', {'id': workout_plan.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_workout_plan_new') }}">Create new</a>
+{% endblock %}

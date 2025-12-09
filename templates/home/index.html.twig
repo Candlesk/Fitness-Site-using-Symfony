@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FitPro - Premium Fitness Platform{% endblock %}
+
+{% block body %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-3 fw-bold mb-4">Transform Your Body, Transform Your Life</h1>
+                <p class="lead mb-4">Professional workout plans and expert exercises to help you achieve your fitness goals faster and smarter.</p>
+                {% if app.user %}
+                    <a href="{{ path('app_workout_plan_index') }}" class="btn btn-warning btn-lg me-3">
+                        <i class="fas fa-fire me-2"></i>Start Training
+                    </a>
+                {% else %}
+                    <a href="{{ path('app_register') }}" class="btn btn-warning btn-lg me-3">
+                        <i class="fas fa-rocket me-2"></i>Start Free Trial
+                    </a>
+                    <a href="{{ path('app_login') }}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                    </a>
+                {% endif %}
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-dumbbell display-1 text-warning"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-3">Everything You Need to Succeed</h2>
+                <p class="lead text-muted">Professional fitness solutions for all levels</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Expert Exercises</h4>
+                        <p class="text-muted">Comprehensive exercise library with detailed instructions and proper form guidance.</p>
+                        <a href="{{ path('app_exercice_index') }}" class="btn btn-primary mt-3">
+                            Browse Exercises <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Workout Plans</h4>
+                        <p class="text-muted">Structured workout programs designed by fitness experts for optimal results.</p>
+                        <a href="{{ path('app_workout_plan_index') }}" class="btn btn-primary mt-3">
+                            View Plans <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5 text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h3 class="display-4 fw-bold">50+</h3>
+                <p class="lead">Expert Exercises</p>
+            </div>
+            <div class="col-md-4">
+                <h3 class="display-4 fw-bold">25+</h3>
+                <p class="lead">Workout Plans</p>
+            </div>
+            <div class="col-md-4">
+                <h3 class="display-4 fw-bold">100%</h3>
+                <p class="lead">Results Guaranteed</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

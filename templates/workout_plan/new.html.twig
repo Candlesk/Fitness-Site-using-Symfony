@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New WorkoutPlan{% endblock %}
+
+{% block body %}
+    <h1>Create new WorkoutPlan</h1>
+
+    {{ include('workout_plan/_form.html.twig') }}
+
+    <a href="{{ path('app_workout_plan_index') }}">back to list</a>
+{% endblock %}

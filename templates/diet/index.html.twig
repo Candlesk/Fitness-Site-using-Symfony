@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Diet index{% endblock %}
+
+{% block body %}
+    <h1>Diet index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Calories</th>
+                <th>Fat</th>
+                <th>Carbohydrates</th>
+                <th>Proteins</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for diet in diets %}
+            <tr>
+                <td>{{ diet.id }}</td>
+                <td>{{ diet.Calories }}</td>
+                <td>{{ diet.Fat }}</td>
+                <td>{{ diet.Carbohydrates }}</td>
+                <td>{{ diet.Proteins }}</td>
+                <td>
+                    <a href="{{ path('app_diet_show', {'id': diet.id}) }}">show</a>
+                    <a href="{{ path('app_diet_edit', {'id': diet.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_diet_new') }}">Create new</a>
+{% endblock %}
